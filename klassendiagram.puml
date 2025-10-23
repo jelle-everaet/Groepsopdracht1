@@ -10,7 +10,9 @@ interface Persoon{
 
 class DungeonMaster{}
 class Speler{}
-class Campaign{}
+class Campaign{
+    -naam: string
+}
 
 DungeonMaster .up.> Persoon
 Speler .up.>Persoon
@@ -19,7 +21,11 @@ Speler "*"<-- Campaign
 
 class Personage{
     -level: int
-    -max
+    -max_hit_points: int
+    -hit_points: int
+    -voornaam: string
+    -achternaam: string
+    -ras: string
 }
 Speler "1"-->"*" Personage
 Personage -->"1" Campaign
