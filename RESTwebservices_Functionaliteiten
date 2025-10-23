@@ -1,0 +1,99 @@
+REST-webservices Functionaliteiten:
+-----------------------------------
+GET /api/personen
+		Retourneert lijst van alle personen ('Persoon'). 
+		Dit zijn dus alle spelers ('Speler') en dm's ('DungeonMaster')
+
+GET /api/personen/{voornaam}/{achternaam}
+        Retourneert de speler of dm geïdentificeerd door voornaam en achternaam.
+
+GET /api/personen/spelers
+		Retourneert lijst van alle personen ('Persoon') die ook een speler ('Speler') zijn.
+
+GET /api/personen/speler/{voornaam}/{achternaam}/personages
+        Retourneert lijst van alle personages ('Personage') van speler ('Speler') geïdentificeerd door voornaam en achternaam.
+
+GET /api/personen/dungeonmasters
+		Retourneert lijst van alle personen ('Persoon') die ook een dungeonmaster ('DungeonMaster') zijn.
+
+GET /api/personen/dungeonmaster/{voornaam}/{achternaam}/campaign
+        Retourneert de campaign ('Campaign') van de dungeonmaster ('DungeonMaster') geïdentificeerd door voornaam en achternaam.
+
+-----------------------------------
+
+GET /api/campaigns
+		Retourneert lijst van alle campaigns ('Campaign').
+
+GET /api/campaign/{naam}
+        Retourneert de campaign geïdentificeerd door naam.
+
+GET /api/campaign/{naam}/personen
+        Retourneert een lijst van alle personen, speler ('Speler') en dungeonmaster ('DungeonMaster') van een campaign geïdentificeerd door naam.
+
+GET /api/campaign/{naam}/persoon/{voornaam}/{achternaam}
+        Retourneert de persoon, speler ('Speler') of dungeonmaster ('DungeonMaster') geïdentificeerd door voornaam en achternaam, van de campaign geïdentificeerd door naam.
+        Voor een speler retourneert het daarnaast het geassocieerde personage.
+        Voor een dungeonmaster retourneert het gewoon de dungeonmaster.
+-----------------------------------
+
+GET /api/personages
+		Retourneert lijst van alle personages ('Personage').
+
+GET /api/personage/{voornaam}/{achternaam}
+        Retourneert het personage geïdentificeerd door voornaam en achternaam.
+
+GET /api/personage/{voornaam}/{achternaam}/klasse
+        Retourneert de klasse van een personage geïdentificeerd door voornaam en achternaam
+
+GET /api/personage/campaign/{voornaam}/{achternaam}
+        Retourneert de campaign geässocieerd met het personage geïdentificeerd door voornaam en achternaam.
+
+-----------------------------------
+
+DELETE /api/personen/{voornaam}/{achternaam}
+        Verwijdert persoon geïdentificeerd door voornaam en achternaam
+
+DELETE /api/campaigns/{naam}
+        Verwijdert campaign geïdentificeerd door naam
+
+DELETE /api/spelers/{voornaam}/{achternaam}/personages/{pvoornaam}/{pachternaam}
+        Verwijdert personage geïdentificeerd door pvoornaam en pachternaam, van speler geïdentificeerd door voornaam en achternaam
+
+DELETE /api/klassen/{naam}
+        Verwijdert klasse geïdentificeerd door naam
+
+-----------------------------------
+
+POST /api/personen
+        Maakt een nieuwe persoon ('Persoon') aan. Body bevat voornaam, achternaam, rol ('speler' of 'dungeonmaster') en optionele extra info.
+
+POST /api/spelers/{voornaam}/{achternaam}/personages
+        Maakt een nieuw personage ('Personage') aan voor de speler geïdentificeerd door voornaam en achternaam. Body bevat voornaam, achternaam, klasse, level.
+
+POST /api/campaigns
+        Maakt een nieuwe campaign ('Campaign') aan. Body bevat naam, dungeonmaster (voornaam en achternaam), en optionele beschrijving.
+
+POST /api/klassen
+        Maakt een nieuwe klasse ('Klasse') aan. Body bevat naam en optionele eigenschappen.
+
+-----------------------------------
+
+PUT /api/personen/{voornaam}/{achternaam}
+        Wijzigt gegevens van de persoon geïdentificeerd door voornaam en achternaam. Body bevat velden die moeten worden bijgewerkt.
+
+PUT /api/spelers/{voornaam}/{achternaam}/personages/{pvoornaam}/{pachternaam}
+        Wijzigt gegevens van het personage geïdentificeerd door pvoornaam en pachternaam, van speler geïdentificeerd door voornaam en achternaam. Body bevat velden die moeten worden bijgewerkt (bv. level, klasse).
+
+PUT /api/campaigns/{naam}
+        Wijzigt gegevens van de campaign geïdentificeerd door naam. Body bevat velden die moeten worden bijgewerkt (bv. dungeonmaster, beschrijving).
+
+PUT /api/klassen/{naam}
+        Wijzigt gegevens van de klasse geïdentificeerd door naam. Body bevat velden die moeten worden bijgewerkt (bv. eigenschappen).
+
+
+
+
+
+
+
+
