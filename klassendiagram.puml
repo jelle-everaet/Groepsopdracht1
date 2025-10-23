@@ -1,1 +1,38 @@
-test
+@startuml Command
+skinparam ClassAttributeIconSize 0
+
+interface Persoon{
+    -voornaam: string
+    -achternaam: string
+    -leeftijd: int
+    -speeltijd: int
+}
+
+class DungeonMaster{}
+class Speler{}
+class Campaign{}
+
+DungeonMaster .up.> Persoon
+Speler .up.>Persoon
+DungeonMaster "1"--"1" Campaign
+Speler "*"<-- Campaign
+
+class Personage{
+    -level: int
+    -max
+}
+Speler "1"-->"*" Personage
+Personage -->"1" Campaign
+
+interface Klasse{}
+Personage -up- Klasse
+
+Wizard ..> Klasse
+Barbarian ..> Klasse
+Rogue ..> Klasse
+Bard ..> Klasse
+Ranger ..> Klasse
+Cleric ..> Klasse
+Paladin ..> Klasse
+
+@enduml
